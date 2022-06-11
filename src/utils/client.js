@@ -38,7 +38,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getClient = exports.gasPrice = void 0;
 var cosmwasm_1 = require("cosmwasm");
-var mnemonic = 'REPLACEME';
+var mnemonic = process.env.MNEMONIC;
 exports.gasPrice = cosmwasm_1.GasPrice.fromString('0ustars');
 function getClient() {
     return __awaiter(this, void 0, void 0, function () {

@@ -4,7 +4,7 @@ import {
   GasPrice,
 } from 'cosmwasm';
 
-const mnemonic = 'REPLACEME';
+const mnemonic = process.env.MNEMONIC;
 
 export const gasPrice = GasPrice.fromString('0ustars');
 
