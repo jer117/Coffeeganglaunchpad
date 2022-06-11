@@ -1,0 +1,37 @@
+@import url(https://fonts.googleapis.com/css?family=VT323);
+
+body {
+  margin: 0;
+  color: green;
+  font: 1.3rem 'VT323', monospace;
+  text-transform: uppercase;
+  text-shadow: 0 0 5px #17370f;
+  background-color: black;
+  background-image: radial-gradient(
+    rgba(45, 122, 248, 0.75), black 120%
+  );
+  height: 100vh;
+  margin: 0;
+  overflow: hidden;
+  padding: 1rem;
+}
+
+
+code {
+  font: 1.3rem VT323, monospace;
+}
+
+nav a {
+  border-radius: 0 !important;
+}
+article header h3,
+article header hgroup {
+  margin-bottom: 0;
+}
+
+th,
+td {
+  font-size: 75%;
+}
+
+
