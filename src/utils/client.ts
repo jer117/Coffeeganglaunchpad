@@ -4,7 +4,7 @@ import {
   GasPrice,
 } from 'cosmwasm';
 
-const mnemonic = process.env.MNEMONIC;
+const mnemonic = "salon wire struggle harbor various feature develop valley better essence connect canyon";
 
 export const gasPrice = GasPrice.fromString('0ustars');
 

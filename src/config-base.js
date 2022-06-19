@@ -15,10 +15,9 @@ module.exports = {
     fileBase: "ipfs://QmXsgEM78xQ2NafaVGg9ovbui68Uf8iWoLHa4LKZ5QX2tC",
     fileUrlImages: "https://ipfs.stargaze.zone/ipfs/QmWku9yk418vikYtcwhktuBru2tU8sWReqwEg8jK7RL4Rz", // I am hosting cached versions on S3 because its much faster
     stargazeZone: "https://testnet.publicawesome.dev",
-    mnemonic:
-    'REPLACEME',
-    // Your STARS address
+    mnemonic:  'REPLACEME',
     account: 'stars1dqf384y0f3epc9mldqpgwklxvylxu8qulvynnn',
+    fuelMetadataUrl: 'https://stargazers.mypinata.cloud/ipfs/QmY1DnchqYRD76hCNBLGgHtkEUppyhYcLWLqoRo96fNQmL/',
   },
   // Production Values`
   production: {

@@ -63,19 +63,20 @@ function TransmuteButton() {
     try {
       nftHelper
         .transmuteToken(rocketIdBurn, fuelIdBurn)
-        .then((tokenId) => {
-          setNewToken(tokenId);
-          resetMintedCount();
-          log.error("SUCCESS");
+        .then((result4) => {
+//          setNewToken(tokenId);
+//          resetMintedCount();
+          log.error(result4);
+          console.log('result4 =', result4);
           setKeplrState("mint_error");
-          setMintErrorDetails("SUCCESS");
+          setMintErrorDetails(result4);
         })
         .catch((e) => {
           if (e.message === "Request rejected") {
             log.debug("Request rejected, reloading");
             setKeplrState("loaded");
           } else {
-            log.error(e);
+            log.error(e.message);
             setKeplrState("mint_error");
             setMintErrorDetails(e.message);
           }

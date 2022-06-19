@@ -1,10 +1,8 @@
 import { calculateFee, coins, GasPrice } from "@cosmjs/stargate";
 import log from "loglevel";
 import { allRaritiesUrl, metaUrl, rarityUrl, thumbUrl } from "./UrlHelper";
-import KeplrClient from "./KeplrClient";
 import { SigningCosmWasmClient } from "@cosmjs/cosmwasm-stargate";
 import { getClient } from "./client";
-import { toStars } from '../utils';
 
 
 
@@ -247,7 +245,16 @@ class NftHelper {
       return data; // returns a promise, which resolves to this data value
     } 
 
-  const fuelURL = "https://stargazers.mypinata.cloud/ipfs/QmY1DnchqYRD76hCNBLGgHtkEUppyhYcLWLqoRo96fNQmL/"+ fuelIdBurn;
+  const getText = async (url) => {
+      const response = await fetch(url);
+      if(!response.ok) // check if response worked (no 404 errors etc...)
+        throw new Error(response.statusText);
+    
+      const data = response.text(); // get text from the response
+      return data; // returns a promise, which resolves to this data value
+    } 
+
+  const fuelURL = this.config.fuelMetadataUrl + fuelIdBurn;
   const response1 = await getJSON(fuelURL);
   const fuelType = response1.attributes[0].value; 
   let pfpMinter = null;
@@ -259,7 +266,14 @@ class NftHelper {
     pfpMinter = this.config.minterDemons;
   }
 
-  const result = await client.execute(
+  console.log('pfpMinter =',pfpMinter);
+  const urlParams = "https://stargazers-launchpad-backend.herokuapp.com/api"+ "?rocketId=" + rocketIdBurn + "&fuelId=" + fuelIdBurn + "&starsAddress=" + starsRecipient + "&pfpMinter=" + pfpMinter;
+  console.log('urlParams =', urlParams);
+  const result4 = await getText(urlParams);
+  console.log('result4 =',result4);
+  return result4;
+
+  /* const result = await client.execute(
     "stars1dqf384y0f3epc9mldqpgwklxvylxu8qulvynnn",
     pfpMinter,
      msg,
@@ -281,7 +295,7 @@ class NftHelper {
   { burn: { token_id: rocketIdBurn } },
    'auto',
    'memo'
- );
+ ); */
 
  /*// This is pure hack, not sure why my other client isn't working.
  const { client } = await KeplrClient(this.config);
@@ -290,13 +304,13 @@ class NftHelper {
    this.config.sg721,
    msg,
    executeFee,
- );*/
+ );
  const wasmEvent = result.logs[0].events.find((e) => e.type === "wasm");
  const tokenId = wasmEvent.attributes.find((a) => a.key === "token_id");
  log.debug(`Burned token id:${tokenId.value}`);
  return tokenId.value;
 
-
+*/
 
   
   };
