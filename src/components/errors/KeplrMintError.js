@@ -22,7 +22,7 @@ function KeplrMintError({ closeFunc }) {
   if (mintError.includes("Minting has not started yet")) {
     errorMsg = "Minting has not started yet.";
   } else if (mintError.includes("Code: 5")) {
-    errorMsg = "Unable to select. Are you sure you own this token?";
+    errorMsg = "Unable to select. Are you sure you own this token and haven't already burned it?";
   } else if (mintError.includes("is not a function")) {
     errorMsg = "Keplr extension is not detected. Please ensure you are using this site from chrome browser on desktop with the Keplr extension installed";
   } else if (mintError.includes("FUELNOAPPROVAL")) {
@@ -35,7 +35,7 @@ function KeplrMintError({ closeFunc }) {
     errorMsg = "You do not own this rocket";
   } else if (mintError.includes("MINTSUCCESS")) {
     tokenUrl = mintError.slice(12);
-    errorMsg = "Your Rocket and Fuel have been burned, click below to see your new Stargazers Cosmonaut! " + tokenUrl;
+    errorMsg = "Your Rocket and Fuel have been burned, click below to see your new Stargazers Cosmonaut!";
     errorTop = "Successful Launch!"
   } else if (mintError.includes("code 11") || mintError.includes("Code: 11")) {
     errorMsg =
