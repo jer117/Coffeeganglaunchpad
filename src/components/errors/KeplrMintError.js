@@ -55,7 +55,7 @@ function KeplrMintError({ closeFunc }) {
           </a>
           <h3>{errorTop}</h3>
         </header>
-        <p>{errorMsg}</p>
+        <h4>{errorMsg}</h4>
         <a href={tokenUrl} target="_blank">{tokenUrl}</a>
       </article>
     </dialog>

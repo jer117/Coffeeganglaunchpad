@@ -16,6 +16,19 @@ body {
   padding: 1rem;
 }
 
+h3 {
+  margin: 0;
+  color: white;
+  font: 2rem 'VT323', monospace;
+  text-transform: uppercase;
+}
+
+h4 {
+  margin: 0;
+  color: white;
+  font: 1.5rem 'VT323', monospace;
+  text-transform: uppercase;
+}
 
 code {
   font: 1.3rem VT323, monospace;
