@@ -5,7 +5,6 @@ body {
   color: green;
   font: 1.3rem 'VT323', monospace;
   text-transform: uppercase;
-  text-shadow: 0 0 5px #17370f;
   background-color: black;
   background-image: radial-gradient(
     rgba(45, 122, 248, 0.75), black 120%
@@ -18,14 +17,14 @@ body {
 
 h3 {
   margin: 0;
-  color: white;
+  color: green;
   font: 2rem 'VT323', monospace;
   text-transform: uppercase;
 }
 
 h4 {
   margin: 0;
-  color: white;
+  color: green;
   font: 1.5rem 'VT323', monospace;
   text-transform: uppercase;
 }
