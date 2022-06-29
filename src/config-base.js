@@ -17,7 +17,7 @@ module.exports = {
     fileUrlImages: "https://ipfs.stargaze.zone/ipfs/QmWku9yk418vikYtcwhktuBru2tU8sWReqwEg8jK7RL4Rz", // I am hosting cached versions on S3 because its much faster
     stargazeZone: "https://testnet.publicawesome.dev",
     account: 'stars14yc957g6dqcvsp45l8ar2l8fnysy4y4p6fn4r3',
-    fuelMetadataUrl: 'https://stargaze.mypinata.cloud/ipfs/QmRvYPEHjsyXSg5UfqwnPoKMqcPuMHpo8ip5ReTCLh7621/',
+    fuelMetadataUrl: 'https://ipfs.io/ipfs/QmRvYPEHjsyXSg5UfqwnPoKMqcPuMHpo8ip5ReTCLh7621',
   },
   // Production Values`
   production: {

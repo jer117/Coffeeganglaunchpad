@@ -25,6 +25,10 @@ function KeplrMintError({ closeFunc }) {
     errorMsg = "Unable to select. Are you sure you own this token and haven't already burned it?";
   } else if (mintError.includes("is not a function")) {
     errorMsg = "Keplr extension is not detected. Please ensure you are using this site from chrome browser on desktop with the Keplr extension installed";
+  } else if (mintError.includes("FUELQUERYERROR")) {
+    errorMsg = "Unable to verify Fuel info - are you sure it has been minted and hasn't already been burned";
+  } else if (mintError.includes("ROCKETQUERYERROR")) {
+    errorMsg = "Unable to verify Rocket info - are you sure it has been minted and hasn't already been burned";
   } else if (mintError.includes("FUELNOAPPROVAL")) {
     errorMsg = "You have not granted approval to burn this fuel";
   } else if (mintError.includes("ROCKETNOAPPROVAL")) {
