@@ -150,7 +150,7 @@ class NftHelper {
 
     const gasPrice = GasPrice.fromString("0ustars");
     const executeFee = calculateFee(300_000, gasPrice);
-    const msg = {approve: {spender: "stars1dqf384y0f3epc9mldqpgwklxvylxu8qulvynnn", token_id:'3'}};
+    const msg = {approve: {spender: this.config.account, token_id:'3'}};
 
     const client = await SigningCosmWasmClient.connectWithSigner(
       "https://rpc.double-double-1.stargaze-apis.com/",
@@ -183,7 +183,7 @@ class NftHelper {
     const accounts = await offlineSigner.getAccounts();
     const gasPrice = GasPrice.fromString("0ustars");
     const executeFee = calculateFee(300_000, gasPrice);
-    const msg = {approve: {spender: "stars1dqf384y0f3epc9mldqpgwklxvylxu8qulvynnn", token_id:rocketId}};
+    const msg = {approve: {spender: this.config.account, token_id:rocketId}};
 
     const client = await SigningCosmWasmClient.connectWithSigner(
       "https://rpc.double-double-1.stargaze-apis.com/",
@@ -208,7 +208,7 @@ class NftHelper {
     const accounts = await offlineSigner.getAccounts();
     const gasPrice = GasPrice.fromString("0ustars");
     const executeFee = calculateFee(300_000, gasPrice);
-    const msg = {approve: {spender: "stars1dqf384y0f3epc9mldqpgwklxvylxu8qulvynnn", token_id:fuelId}};
+    const msg = {approve: {spender: this.config.account, token_id:fuelId}};
 
     const client = await SigningCosmWasmClient.connectWithSigner(
       "https://rpc.double-double-1.stargaze-apis.com/",
@@ -258,12 +258,14 @@ class NftHelper {
   const response1 = await getJSON(fuelURL);
   const fuelType = response1.attributes[0].value; 
   let pfpMinter = null;
-  if (fuelType === 'coffee'){
+  if (fuelType === 'Coffee'){
     pfpMinter = this.config.minterHumans;
-  } else if (fuelType === 'slime') {
+  } else if (fuelType === 'Seawater') {
     pfpMinter = this.config.minterCephalopods;
-  } else if (fuelType === 'dynamite') {
+  } else if (fuelType === 'Blood') {
     pfpMinter = this.config.minterDemons;
+  } else if (fuelType === 'Stardust') {
+    pfpMinter = this.config.minterEpics;
   }
 
   console.log('pfpMinter =',pfpMinter);
