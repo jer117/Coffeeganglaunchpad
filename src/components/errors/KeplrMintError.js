@@ -39,7 +39,9 @@ function KeplrMintError({ closeFunc }) {
   } else if (mintError.includes("ROCKETNOTOWNER")) {
     errorMsg = "You do not own this rocket";
   } else if (mintError.includes("MINTSUCCESS")) {
-    const [ermsg, tokenUrl, imgLoc] = mintError.split(' ');
+    const myArray = mintError.split(' ');
+    tokenUrl = myArray[1];
+    imgLoc = myArray[2];
     console.log("tokenUrl ", tokenUrl);
     console.log("imgLoc: ", imgLoc);
     errorMsg = "Your Rocket and Fuel have been burned, click below to see your new Stargazers Cosmonaut!";
