@@ -44,7 +44,7 @@ function KeplrMintError({ closeFunc }) {
     imgLoc = myArray[2];
     console.log("tokenUrl ", tokenUrl);
     console.log("imgLoc: ", imgLoc);
-    errorMsg = "Your Rocket and Fuel have been burned, click below to see your new Stargazers Cosmonaut!";
+    errorMsg = "Your Rocket and Fuel have been burned, behold your new Stargazers Cosmonaut PFP! Click on it to view full details";
     errorTop = "Successful Launch!"
   } else if (mintError.includes("ROCKETAPPROVED")) {
     errorMsg = "Rocket Approved for Launch!";
@@ -74,8 +74,8 @@ function KeplrMintError({ closeFunc }) {
           <h3>{errorTop}</h3>
         </header>
         <h4>{errorMsg}</h4>
-        <a href={tokenUrl} target="_blank">{tokenUrl}</a>
-        <img src={imgLoc}></img>
+        <a href={tokenUrl} target="_blank"><img src={imgLoc}></img></a>
+        
       </article>
     </dialog>
   );
