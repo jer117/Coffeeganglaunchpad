@@ -67,7 +67,7 @@ function RocketSelectButton() {
           log.error(result4);
           console.log('result4 =', result4);
           setKeplrState("mint_error");
-          setMintErrorDetails("temp");
+          setMintErrorDetails(result4);
         })
         .catch((e) => {
           if (e.message === "Request rejected") {

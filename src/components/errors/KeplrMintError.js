@@ -44,6 +44,12 @@ function KeplrMintError({ closeFunc }) {
     console.log("imgLoc: ", imgLoc);
     errorMsg = "Your Rocket and Fuel have been burned, click below to see your new Stargazers Cosmonaut!";
     errorTop = "Successful Launch!"
+  } else if (mintError.includes("ROCKETAPPROVED")) {
+    errorMsg = "Rocket Approved for Launch!";
+    errorTop = "Selection Success!"
+  } else if (mintError.includes("FUELAPPROVED")) {
+    errorMsg = "Fuel Approved for Launch!";
+    errorTop = "Selection Success!"
   } else if (mintError.includes("code 11") || mintError.includes("Code: 11")) {
     errorMsg =
       "There was not enough gas used to perform the mint. Please try increasing the gas and try again.";

@@ -200,7 +200,7 @@ class NftHelper {
     const wasmEvent = result.logs[0].events.find((e) => e.type === "wasm");
     const tokenId = wasmEvent.attributes.find((a) => a.key === "token_id");
     log.debug(`Approved token id:${tokenId.value}`);
-    return wasmEvent.attributes;
+    return "ROCKETAPPROVED" + tokenId.value;
   };
 
   approveFuel = async (fuelId) => {
@@ -225,7 +225,7 @@ class NftHelper {
     const wasmEvent = result.logs[0].events.find((e) => e.type === "wasm");
     const tokenId = wasmEvent.attributes.find((a) => a.key === "token_id");
     log.debug(`Approved token id:${tokenId.value}`);
-    return wasmEvent.attributes;
+    return "FUELAPPROVED" + tokenId.value;
   };
 
   transmuteToken = async (rocketIdBurn, fuelIdBurn) => {
