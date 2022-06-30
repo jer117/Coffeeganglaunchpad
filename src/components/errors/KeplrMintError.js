@@ -40,7 +40,7 @@ function KeplrMintError({ closeFunc }) {
   } else if (mintError.includes("MINTSUCCESS")) {
     const [ermsg, tokenUrl, imgLoc] = mintError.split('~');
     console.log("tokenUrl ", tokenUrl);
-    console.log("imgLoc: " imgLoc);
+    console.log("imgLoc: ", imgLoc);
     errorMsg = "Your Rocket and Fuel have been burned, click below to see your new Stargazers Cosmonaut!";
     errorTop = "Successful Launch!"
   } else if (mintError.includes("code 11") || mintError.includes("Code: 11")) {
