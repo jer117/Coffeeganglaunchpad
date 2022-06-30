@@ -38,6 +38,8 @@ function KeplrMintError({ closeFunc }) {
     errorMsg = "You do not own this fuel";
   } else if (mintError.includes("ROCKETNOTOWNER")) {
     errorMsg = "You do not own this rocket";
+  } else if (mintError.includes("ROCKETBURNERROR")) {
+    errorMsg = "There has been a launch error - your Fuel was burned successfully but your Rocket was not. Please contact Stargazers with your token numbers and we will manually complete your launch.";
   } else if (mintError.includes("MINTSUCCESS")) {
     const myArray = mintError.split(' ');
     tokenUrl = myArray[1];
