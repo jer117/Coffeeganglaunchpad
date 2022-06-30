@@ -55,7 +55,7 @@ function KeplrMintError({ closeFunc }) {
   } else if (mintError.includes("code 11") || mintError.includes("Code: 11")) {
     errorMsg =
       "There was not enough gas used to perform the mint. Please try increasing the gas and try again.";
-  } else if (mintError.includes("code 18") || mintError.includes("Code: 18")) {
+  } else if (mintError.includes("(18)")) {
     errorMsg =
       "Too much traffic - please try again in a moment";
   }
