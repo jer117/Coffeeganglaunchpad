@@ -21,7 +21,7 @@ function Gallery() {
   if (currentAccountCheck){
     currentAccount = currentAccountCheck;
   }
-  const accountURL = "https://testnet.publicawesome.dev/profile/" + useRecoilValueLoadable(
+  const accountURL = "https://app.stargaze.zone/profile/" + useRecoilValueLoadable(
     currentAccountSelector
   ).valueMaybe() + "/all";
 
