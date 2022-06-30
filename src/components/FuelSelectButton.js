@@ -61,10 +61,13 @@ function FuelSelectButton() {
     try {
       nftHelper
         .approveFuel(fuelId)
-        .then((tokenId) => {
-          setNewToken(tokenId);
-          resetMintedCount();
-          setKeplrState("loaded");
+        .then((result4) => {
+//          setNewToken(tokenId);
+//          resetMintedCount();
+          log.error(result4);
+          console.log('result4 =', result4);
+          setKeplrState("mint_error");
+          setMintErrorDetails(result4);
         })
         .catch((e) => {
           if (e.message === "Request rejected") {
