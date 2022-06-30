@@ -39,6 +39,8 @@ function KeplrMintError({ closeFunc }) {
     errorMsg = "You do not own this rocket";
   } else if (mintError.includes("MINTSUCCESS")) {
     tokenUrl = mintError.slice(12);
+    tokenNum = mintError.slice(117);
+    console.log("tokenNum: ", tokenNum);
     errorMsg = "Your Rocket and Fuel have been burned, click below to see your new Stargazers Cosmonaut!";
     errorTop = "Successful Launch!"
   } else if (mintError.includes("code 11") || mintError.includes("Code: 11")) {
