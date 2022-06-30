@@ -67,7 +67,7 @@ function FuelSelectButton() {
           log.error(result4);
           console.log('result4 =', result4);
           setKeplrState("mint_error");
-          setMintErrorDetails(result4);
+          setMintErrorDetails("temp");
         })
         .catch((e) => {
           if (e.message === "Request rejected") {

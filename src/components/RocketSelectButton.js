@@ -61,10 +61,13 @@ function RocketSelectButton() {
     try {
       nftHelper
         .approveRocket(rocketId)
-        .then((tokenId) => {
-          setNewToken(tokenId);
-          resetMintedCount();
-          setKeplrState("loaded");
+        .then((result4) => {
+//          setNewToken(tokenId);
+//          resetMintedCount();
+          log.error(result4);
+          console.log('result4 =', result4);
+          setKeplrState("mint_error");
+          setMintErrorDetails("temp");
         })
         .catch((e) => {
           if (e.message === "Request rejected") {
