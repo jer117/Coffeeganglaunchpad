@@ -2,7 +2,6 @@ import { calculateFee, coins, GasPrice } from "@cosmjs/stargate";
 import log from "loglevel";
 import { allRaritiesUrl, metaUrl, rarityUrl, thumbUrl } from "./UrlHelper";
 import { SigningCosmWasmClient } from "@cosmjs/cosmwasm-stargate";
-import { getClient } from "./client";
 
 
 
@@ -153,7 +152,7 @@ class NftHelper {
     const msg = {approve: {spender: this.config.account, token_id:'3'}};
 
     const client = await SigningCosmWasmClient.connectWithSigner(
-      "https://rpc.double-double-1.stargaze-apis.com/",
+      this.config.rpcEndpoint,
       offlineSigner
   )
 
@@ -186,7 +185,7 @@ class NftHelper {
     const msg = {approve: {spender: this.config.account, token_id:rocketId}};
 
     const client = await SigningCosmWasmClient.connectWithSigner(
-      "https://rpc.double-double-1.stargaze-apis.com/",
+      this.config.rpcEndpoint,
       offlineSigner
   )
 
@@ -211,7 +210,7 @@ class NftHelper {
     const msg = {approve: {spender: this.config.account, token_id:fuelId}};
 
     const client = await SigningCosmWasmClient.connectWithSigner(
-      "https://rpc.double-double-1.stargaze-apis.com/",
+      this.config.rpcEndpoint,
       offlineSigner
   )
 
@@ -234,7 +233,6 @@ class NftHelper {
   const accounts = await offlineSigner.getAccounts();
   const starsRecipient = accounts[0].address;
   const msg = { mint_to: { recipient: starsRecipient } };
-  const client = await getClient();
 
   const getJSON = async (url) => {
       const response = await fetch(url);
