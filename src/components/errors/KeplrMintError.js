@@ -38,6 +38,8 @@ function KeplrMintError({ closeFunc }) {
     errorMsg = "You do not own this fuel";
   } else if (mintError.includes("ROCKETNOTOWNER")) {
     errorMsg = "You do not own this rocket";
+  } else if (mintError.includes("Failed to fetch")) {
+    errorMsg = "API error - please check your wallet in case the transaction went through, and try again if it did not";
   } else if (mintError.includes("ROCKETBURNERROR")) {
     errorMsg = "There has been a launch error - your Fuel was burned successfully but your Rocket was not. Please contact Stargazers with your token numbers and we will manually complete your launch.";
   } else if (mintError.includes("MINTSUCCESS")) {
@@ -57,7 +59,7 @@ function KeplrMintError({ closeFunc }) {
   } else if (mintError.includes("code 11") || mintError.includes("Code: 11")) {
     errorMsg =
       "There was not enough gas used to perform the mint. Please try increasing the gas and try again.";
-  } else if (mintError.includes("(18)")) {
+  } else if (mintError.includes("(18)") || mintError.includes("account sequence mismatch")) {
     errorMsg =
       "Too much traffic - please try again in a moment";
   }
