@@ -38,9 +38,9 @@ function KeplrMintError({ closeFunc }) {
   } else if (mintError.includes("ROCKETNOTOWNER")) {
     errorMsg = "You do not own this rocket";
   } else if (mintError.includes("MINTSUCCESS")) {
-    tokenUrl = mintError.slice(12);
-    tokenNum = mintError.slice(117);
-    console.log("tokenNum: ", tokenNum);
+    const [ermsg, tokenUrl, imgLoc] = mintError.split('~');
+    console.log("tokenUrl ", tokenUrl);
+    console.log("imgLoc: " imgLoc);
     errorMsg = "Your Rocket and Fuel have been burned, click below to see your new Stargazers Cosmonaut!";
     errorTop = "Successful Launch!"
   } else if (mintError.includes("code 11") || mintError.includes("Code: 11")) {
@@ -63,6 +63,7 @@ function KeplrMintError({ closeFunc }) {
         </header>
         <h4>{errorMsg}</h4>
         <a href={tokenUrl} target="_blank">{tokenUrl}</a>
+        <img src={imgLoc} />
       </article>
     </dialog>
   );
