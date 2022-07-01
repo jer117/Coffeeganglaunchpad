@@ -14,9 +14,8 @@ function KeplrConnectError({ closeFunc }) {
           <h3>Could not connect with Keplr Wallet</h3>
         </header>
         <p>
-          Keplr Wallet is required for some of the functionality on this site.
-          You may still browse around, but the experience may be limited. Please
-          try one of the following options to enable all functionality:
+          Keplr Wallet Chrome Extension is required to utilize the Rocket Launchpad. Please note the Launchpad
+          cannot be used from mobile devices at this time.
         </p>
         <hr></hr>
         <ul>
