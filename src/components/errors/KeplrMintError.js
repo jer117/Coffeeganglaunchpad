@@ -38,6 +38,8 @@ function KeplrMintError({ closeFunc }) {
     errorMsg = "You do not own this fuel";
   } else if (mintError.includes("ROCKETNOTOWNER")) {
     errorMsg = "You do not own this rocket";
+  } else if (mintError.includes("Unexpected characters")) {
+    errorMsg = "It looks like you've tried to do a transaction using a Ledger. Unfortunately this site does not yet work with Ledger. As a workaround, you may send your Rocket & Fuel to another wallet to do the Launch, then send the minted PFP back to your Ledger wallet when complete.";
   } else if (mintError.includes("Failed to fetch")) {
     errorMsg = "API error - please check your wallet in case the transaction went through, and try again if it did not";
   } else if (mintError.includes("ROCKETBURNERROR")) {
