@@ -43,9 +43,9 @@ function KeplrMintError({ closeFunc }) {
   } else if (mintError.includes("Failed to fetch")) {
     errorMsg = "API error - please check your wallet in case the transaction went through, and try again if it did not";
   } else if (mintError.includes("ROCKETBURNERROR")) {
-    errorMsg = "There has been a launch error - your Fuel was burned successfully but your Rocket was not. Please contact Stargazers with your token numbers and we will manually complete your launch.";
+    errorMsg = "There has been a launch error - your Fuel was burned successfully but your Rocket was not. The Stargazers team has been alerted and will manually complete your launch soon - keep an eye on your wallet!";
   } else if (mintError.includes("MINTINGERROR")) {
-    errorMsg = "There has been a launch error - your Rocket & Fuel were burned successfully but your Cosmonaut was not minted. Please contact Stargazers with your token numbers and we will manually complete your launch.";
+    errorMsg = "There has been a launch error - your Rocket & Fuel were burned successfully but your Cosmonaut was not minted. The Stargazers team has been alerted and will manually complete your launch soon - keep an eye on your wallet!";
   } else if (mintError.includes("MINTSUCCESS")) {
     const myArray = mintError.split(' ');
     tokenUrl = myArray[1];
