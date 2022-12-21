@@ -2,7 +2,7 @@
   "providers": [
     "awscloudformation"
   ],
-  "projectName": "rocketlaunchpad",
+  "projectName": "Coffeeganglaunchpad",
   "version": "3.1",
   "frontend": "javascript",
   "javascript": {

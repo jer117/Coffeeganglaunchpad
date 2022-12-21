@@ -238,38 +238,28 @@ class NftHelper {
       const response = await fetch(url);
       if(!response.ok) // check if response worked (no 404 errors etc...)
         throw new Error(response.statusText);
-    
+
       const data = response.json(); // get JSON from the response
       return data; // returns a promise, which resolves to this data value
-    } 
+    }
 
   const getText = async (url) => {
       const response = await fetch(url);
       if(!response.ok) // check if response worked (no 404 errors etc...)
         throw new Error(response.statusText);
-    
+
       const data = response.text(); // get text from the response
       return data; // returns a promise, which resolves to this data value
-    } 
+    }
 
-  const fuelURL = this.config.fuelMetadataUrl + fuelIdBurn;
-  const response1 = await getJSON(fuelURL);
-  const fuelType = response1.attributes[0].value; 
   let pfpMinter = null;
-  if (fuelType === 'Coffee'){
-    pfpMinter = this.config.minterHumans;
-  } else if (fuelType === 'Seawater') {
-    pfpMinter = this.config.minterCephalopods;
-  } else if (fuelType === 'Blood') {
-    pfpMinter = this.config.minterDemons;
-  } else if (fuelType === 'Stardust') {
-    pfpMinter = this.config.minterEpics;
-  }
+  pfpMinter = this.config.minterHumans;
+
 
   console.log('pfpMinter =',pfpMinter);
-  const urlParams = "https://stargazers-launchpad-backend.herokuapp.com/api"+ "?rocketId=" + rocketIdBurn + "&fuelId=" + fuelIdBurn + "&starsAddress=" + starsRecipient + "&pfpMinter=" + pfpMinter;
+  const urlParams = "&starsAddress=" + starsRecipient + "&pfpMinter=" + pfpMinter;
   console.log('urlParams =', urlParams);
-  const result4 = await getText(urlParams);
+  const result4 = urlParams
   console.log('result4 =',result4);
   return result4;
 
@@ -312,10 +302,10 @@ class NftHelper {
 
 */
 
-  
+
   };
 
-  
+
 }
 
 export default NftHelper;

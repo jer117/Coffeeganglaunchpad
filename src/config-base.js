@@ -1,22 +1,21 @@
 module.exports = {
   // Testnet values
   testnet: {
-    rpcEndpoint: "https://rpc.double-double-1.stargaze-apis.com/",
-    restEndpoint: "https://rest.double-double-1.stargaze-apis.com/",
-    chainId: "double-double-1",
+    rpcEndpoint: "https://rpc.elgafar-1.stargaze-apis.com/",
+    restEndpoint: "https://rest.elgafar-1.stargaze-apis.com/",
+    chainId: "elgafar-1",
+    chainName: "elgafar-1",
     // Custom values here
-    sg721: "stars1w73dekjygm4wwx6d8j6e4ymywzalhys77pw5a4z0gp023yu3a89sujy3zd", // UPDATE ME to your testnet contract
+    sg721: "stars17vymsa6zgnfylmyfl6p357wqw8yvfefyet60ge43e7lrmcdc89csmd7wqe", // UPDATE ME to your testnet contract
     sg721Rockets: "stars186tjfdguldrvrt6dcyqk0afwv5pcm8tl9y2p2qvjf36vfwlxnu5qys7pue", // UPDATE ME to your testnet contract
     sg721Fuels: "stars1a2akm58cv8p0qk5yw398mm4zg3jw3ee5j8qyq9hzfwzpg07kgqqsfy4c2s", // UPDATE ME to your testnet contract
-    minterHumans: "stars19equv33mget3ank0yxr5k3my7u9t6f7fakdy42g5rc4mv0ycaz3s3pfy3j", // UPDATE ME to your testnet contract
-    minterDemons: "stars10l8a3uzxeqy955rk2h485cdswdtxvegdgzsr5cxuzlpah4l36t3q5msp3k", // UPDATE ME to your testnet contract
-    minterCephalopods: "stars1tz5rc4lpl5rcud7hscgkfnnchf0x9nzgka8ccsnkjvp0utjdtvzqtmufw5", // UPDATE ME to your testnet contract
-    minterEpics: "stars1k7pluj4gck66mrsmrntmcrhqgla2za0jj4pfsgq2ywxf6534stmqd7hmuj",
-    minter: "stars15nxezujsnt68g390dr9ptdem7fkpeahavrsvhfx4jpavr6s4mjlsgktw64", // UPDATE ME to your testnet contract
+    minterHumans: "stars19ns6gzearm8pvcmvu2e96r9d49ynwejdfrfzgnktw02nyay7ceesckyxn6", // UPDATED to the bad kids nft contract.
+    minter: "stars1jptkqygmr0k3sy5eemg6eeawq0guwgku53ve03nwm9txaete828sru0rmn", // UPDATE ME to your testnet contract
     fileBase: "ipfs://QmXsgEM78xQ2NafaVGg9ovbui68Uf8iWoLHa4LKZ5QX2tC",
+    // Must update to our coffeegang location.
     fileUrlImages: "https://ipfs.stargaze.zone/ipfs/QmWku9yk418vikYtcwhktuBru2tU8sWReqwEg8jK7RL4Rz", // I am hosting cached versions on S3 because its much faster
     stargazeZone: "https://testnet.publicawesome.dev",
-    account: 'stars14yc957g6dqcvsp45l8ar2l8fnysy4y4p6fn4r3',
+    account: 'stars1fmk9s7wpky6f0quv42lxa3p5z50p9qp98qst92',
     fuelMetadataUrl: 'https://stargaze.mypinata.cloud/ipfs/QmRvYPEHjsyXSg5UfqwnPoKMqcPuMHpo8ip5ReTCLh7621/',
   },
   // Production Values`
@@ -42,7 +41,7 @@ module.exports = {
     fuelMetadataUrl: 'https://stargaze.mypinata.cloud/ipfs/QmRvYPEHjsyXSg5UfqwnPoKMqcPuMHpo8ip5ReTCLh7621/',
   },
   global: {
-    testnet: false, // Set to false on Production
+    testnet: true, // Set to false on Production
     showTestnetMsg: false,
     debug: true,
   },

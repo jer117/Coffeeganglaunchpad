@@ -1,9 +1,9 @@
 {
-  "short_name": "Stargazers Rocket Launchpad",
-  "name": "Launch your rockets with fuel to mint Stargazers Cosmonaut PfPs",
+  "short_name": "Coffeegang Launchpad",
+  "name": "Mint your nfts to partake in this DAO.",
   "icons": [
     {
-      "src": "favicon.ico",
+      "src": "1.png",
       "sizes": "64x64 32x32 24x24 16x16",
       "type": "image/x-icon"
     }

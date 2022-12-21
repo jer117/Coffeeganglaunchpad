@@ -36,7 +36,7 @@ const mintStates = {
     loading: false,
   },
   mint_error: {
-    label: "Launch Error",
+    label: "Mint Error",
     disabled: true,
     loading: false,
   },

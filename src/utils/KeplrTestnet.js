@@ -18,10 +18,10 @@ const defaultBech32Config = (
 };
 
 const testnetConfig = {
-  chainId: "double-double-1",
-  rpc: "https://rpc.double-double-1.stargaze-apis.com/",
-  rest: "https://rest.double-double-1.stargaze-apis.com/",
-  chainName: "Stargaze Test",
+  chainId: "elgafar-1",
+  chainName: "elgafar-1",
+  rpc: "https://rpc.elgafar-1.stargaze-apis.com/",
+  rest: "https://rest.elgafar-1.stargaze-apis.com/",
   bech32Config: defaultBech32Config("stars"),
   bip44: {
     coinType: 118,

@@ -12,8 +12,8 @@ import {
   newTokenAddedSelector,
   mintedCountState,
   mintErrorDetails,
-  rocketIdState,
-  fuelIdState,
+  // rocketIdState,
+  // fuelIdState,
 } from "../state";
 import AsyncNftHelper from "../utils/AsyncNftHelper";
 
@@ -51,8 +51,8 @@ function TransmuteButton() {
   const setKeplrState = useSetRecoilState(keplrDerviedState);
   const setNewToken = useSetRecoilState(newTokenAddedSelector);
   const setMintErrorDetails = useSetRecoilState(mintErrorDetails);
-  const [rocketIdBurn, setRocketIdBurn] = useRecoilState(rocketIdState);
-  const [fuelIdBurn, setFuelIdBurn] = useRecoilState(fuelIdState);
+  // const [rocketIdBurn, setRocketIdBurn] = useRecoilState(rocketIdState);
+  // const [fuelIdBurn, setFuelIdBurn] = useRecoilState(fuelIdState);
 
   const buttonState =
     kState.map((s) => mintStates[s]).valueMaybe() || mintStates.loading;
@@ -62,7 +62,7 @@ function TransmuteButton() {
     const nftHelper = await AsyncNftHelper.getInstance();
     try {
       nftHelper
-        .transmuteToken(rocketIdBurn, fuelIdBurn)
+        .transmuteToken()
         .then((result4) => {
 //          setNewToken(tokenId);
 //          resetMintedCount();
