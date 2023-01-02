@@ -2,6 +2,48 @@
 CONTRACT=stars10hm2p3ll26zkzwmm202mfdmqy0x0qaxjtqcu6y9cl45razea84hs62p5zn
 
 # Function to check what address has an NFT at a specific time.
+FindOwnerOf() {
+    # create an empty array
+    owner_of=()
+
+    # loop 10 times between 1980 and 1990
+    for i in {1983..1984}
+    do
+    # curl the website and store the result in a variable
+    QUERY=$(echo '{"owner_of":{"token_id":"'$i'"}}' | base64)
+    result=$(curl -s "https://rest.elgafar-1.stargaze-apis.com/cosmwasm/wasm/v1/contract/$CONTRACT/smart/$QUERY" | jq -r .data.owner)
+
+    # add the result to the array
+    owner_of+=("$result")
+    done
+
+
+    echo "Printing Owner."
+    #Print first array.
+    echo "${owner_of[@]}"
+
+}
+
+GetTokens() {
+
+    # curl the website and store the result in a variable
+    QUERY=$(echo '{"num_tokens":{}}' | base64)
+    result=$(curl -s "https://rest.elgafar-1.stargaze-apis.com/cosmwasm/wasm/v1/contract/$CONTRACT/smart/$QUERY" | jq )
+    echo "$result"
+
+}
+
+FindNftInfo() {
+
+    # curl the website and store the result in a variable
+    QUERY=$(echo '{"nft_info":{"token_id":"'1984'"}}' | base64)
+    result=$(curl -s "https://rest.elgafar-1.stargaze-apis.com/cosmwasm/wasm/v1/contract/$CONTRACT/smart/$QUERY" | jq )
+
+    echo "$result"
+
+}
+
+# Function to check what address has an NFT at a specific time.
 FindTokenOwners() {
     # create an empty array
     first_snapshot=()
@@ -61,5 +103,14 @@ FindTokenOwners() {
 
 }
 
+#Get number of tokens in circulation.
+GetTokens
+
+# Find all nft info for a specific token id.
+FindNftInfo
+
 # Call Find Token Owners
 FindTokenOwners
+
+#FindOwnerOf
+FindOwnerOf
