@@ -103,6 +103,13 @@ FindTokenOwners() {
 
 }
 
+SendRewards() {
+
+    # send rewards to one address.
+    cmd=$(/Users/jer/Development/CoffeeGangStargaze/Coffeeganglaunchpad/bin/starsd tx bank send --yes stars1fmk9s7wpky6f0quv42lxa3p5z50p9qp98qst92 $element 1000000ustars --chain-id elgafar-1 --node https://stargaze-testnet-rpc.polkachu.com:443 --fees 50000ustars )
+
+}
+
 #Get number of tokens in circulation.
 GetTokens
 
@@ -114,3 +121,6 @@ FindTokenOwners
 
 #FindOwnerOf
 FindOwnerOf
+
+#Send Rewards to other wallets.
+SendRewards
