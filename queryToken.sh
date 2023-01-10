@@ -105,8 +105,16 @@ FindTokenOwners() {
 
 SendRewards() {
 
-    # send rewards to one address.
-    cmd=$(/Users/jer/Development/CoffeeGangStargaze/Coffeeganglaunchpad/bin/starsd tx bank send --yes stars1fmk9s7wpky6f0quv42lxa3p5z50p9qp98qst92 $element 1000000ustars --chain-id elgafar-1 --node https://stargaze-testnet-rpc.polkachu.com:443 --fees 50000ustars )
+    # loop through the array and download the HTML content of each URL
+    for elements in "${element[@]}"
+    do
+        # send rewards to one address.
+        cmd=$(/Users/jer/Development/CoffeeGangStargaze/Coffeeganglaunchpad/bin/starsd tx bank send --yes stars1fmk9s7wpky6f0quv42lxa3p5z50p9qp98qst92 $element 1000000ustars --chain-id elgafar-1 --node https://stargaze-testnet-rpc.polkachu.com:443 --fees 50000ustars )
+        if [ $? -ne 0 ]; then
+            echo "$element failed to send transaction to this nft holder.."
+            #Add alerting here, add a slack hook o telegram hook to inform us that reward payment failed.
+        fi
+    done
 
 }
 
