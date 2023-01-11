@@ -1,5 +1,5 @@
 #Cosmwasm smart contract
-CONTRACT=stars10hm2p3ll26zkzwmm202mfdmqy0x0qaxjtqcu6y9cl45razea84hs62p5zn
+CONTRACT=stars1y0j7ghdpuv2hgl7mjzq46zp7d3sc45aczgaqar3k3qlwumvhv7xs0fphcd
 
 # Function to check what address has an NFT at a specific time.
 FindOwnerOf() {
@@ -7,7 +7,7 @@ FindOwnerOf() {
     owner_of=()
 
     # loop 10 times between 1980 and 1990
-    for i in {1983..1984}
+    for i in {1..15}
     do
     # curl the website and store the result in a variable
     QUERY=$(echo '{"owner_of":{"token_id":"'$i'"}}' | base64)
@@ -33,23 +33,13 @@ GetTokens() {
 
 }
 
-FindNftInfo() {
-
-    # curl the website and store the result in a variable
-    QUERY=$(echo '{"nft_info":{"token_id":"'1984'"}}' | base64)
-    result=$(curl -s "https://rest.elgafar-1.stargaze-apis.com/cosmwasm/wasm/v1/contract/$CONTRACT/smart/$QUERY" | jq )
-
-    echo "$result"
-
-}
-
 # Function to check what address has an NFT at a specific time.
 FindTokenOwners() {
     # create an empty array
     first_snapshot=()
 
     # loop 10 times between 1980 and 1990
-    for i in {1983..1984}
+    for i in {1..15}
     do
     # curl the website and store the result in a variable
     QUERY=$(echo '{"all_nft_info":{"token_id":"'$i'"}}' | base64)
@@ -76,7 +66,7 @@ FindTokenOwners() {
     second_snapshot=()
 
     # loop 10 times between 1980 and 1990
-    for i in {1983..1984}
+    for i in {1..15}
         do
         # curl the website and store the result in a variable
         QUERY=$(echo '{"all_nft_info":{"token_id":"'$i'"}}' | base64)
@@ -94,35 +84,44 @@ FindTokenOwners() {
         do
             for other_element in ${second_snapshot[@]}
                 do
-        if [ "$element" = "$other_element" ] && [ "$element" != "null" ]
-        then
-        echo "$element"
-        fi
-    done
-    done
-
-}
-
-SendRewards() {
-
-    # loop through the array and download the HTML content of each URL
-    for elements in "${element[@]}"
-    do
-        # send rewards to one address.
-        cmd=$(/Users/jer/Development/CoffeeGangStargaze/Coffeeganglaunchpad/bin/starsd tx bank send --yes stars1fmk9s7wpky6f0quv42lxa3p5z50p9qp98qst92 $element 1000000ustars --chain-id elgafar-1 --node https://stargaze-testnet-rpc.polkachu.com:443 --fees 50000ustars )
-        if [ $? -ne 0 ]; then
-            echo "$element failed to send transaction to this nft holder.."
-            #Add alerting here, add a slack hook o telegram hook to inform us that reward payment failed.
-        fi
+                if [ "$element" = "$other_element" ] && [ "$element" != "null" ]
+                then
+                    echo "Holder: $element."
+                    # send rewards to one address.
+                    cmd=$(/Users/jer/Development/CoffeeGangStargaze/Coffeeganglaunchpad/bin/starsd tx bank send --yes stars1fmk9s7wpky6f0quv42lxa3p5z50p9qp98qst92 $element 1000000ustars --chain-id elgafar-1 --node https://stargaze-testnet-rpc.polkachu.com:443 --fees 50000ustars )
+                    # Pause the script for the random number of seconds
+                    sleep 5
+                    # Echo the sleeping time
+                    echo "Slept for 5 seconds"
+                    echo "Rewards sent to $element."
+                    if [ $? -ne 0 ]; then
+                        echo "$element failed to send transaction to this nft holder.."
+                        #Add alerting here, add a slack hook o telegram hook to inform us that reward payment failed.
+                    fi
+                fi
+            done
     done
 
 }
+
+# SendRewards() {
+
+#     # loop through the array and download the HTML content of each URL
+#     for elements in "${element[@]}"
+#     do
+#         echo "Holder: $element."
+#         # send rewards to one address.
+#         cmd=$(/Users/jer/Development/CoffeeGangStargaze/Coffeeganglaunchpad/bin/starsd tx bank send --yes stars1fmk9s7wpky6f0quv42lxa3p5z50p9qp98qst92 $element 1000000ustars --chain-id elgafar-1 --node https://stargaze-testnet-rpc.polkachu.com:443 --fees 50000ustars )
+#         if [ $? -ne 0 ]; then
+#             echo "$element failed to send transaction to this nft holder.."
+#             #Add alerting here, add a slack hook o telegram hook to inform us that reward payment failed.
+#         fi
+#     done
+
+# }
 
 #Get number of tokens in circulation.
 GetTokens
-
-# Find all nft info for a specific token id.
-FindNftInfo
 
 # Call Find Token Owners
 FindTokenOwners
@@ -130,5 +129,5 @@ FindTokenOwners
 #FindOwnerOf
 FindOwnerOf
 
-#Send Rewards to other wallets.
-SendRewards
+# #Send Rewards to other wallets.
+# SendRewards
