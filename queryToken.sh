@@ -80,27 +80,28 @@ FindTokenOwners() {
     echo "${second_snapshot[@]}"
 
     # Compare elements of first snapshot with elements of second snapshot.
-    for element in ${first_snapshot[@]}
-        do
-            for other_element in ${second_snapshot[@]}
-                do
-                if [ "$element" = "$other_element" ] && [ "$element" != "null" ]
-                then
-                    echo "Holder: $element."
-                    # send rewards to one address.
-                    cmd=$(/Users/jer/Development/CoffeeGangStargaze/Coffeeganglaunchpad/bin/starsd tx bank send --yes stars1fmk9s7wpky6f0quv42lxa3p5z50p9qp98qst92 $element 1000000ustars --chain-id elgafar-1 --node https://stargaze-testnet-rpc.polkachu.com:443 --fees 50000ustars )
-                    # Pause the script for the random number of seconds
-                    sleep 5
-                    # Echo the sleeping time
-                    echo "Slept for 5 seconds"
-                    echo "Rewards sent to $element."
-                    if [ $? -ne 0 ]; then
-                        echo "$element failed to send transaction to this nft holder.."
-                        #Add alerting here, add a slack hook o telegram hook to inform us that reward payment failed.
-                    fi
-                fi
-            done
+for element in ${first_snapshot[@]}
+do
+    for other_element in ${second_snapshot[@]}
+    do
+        if [ "$element" = "$other_element" ] && [ "$element" != "null" ]
+        then
+            echo "Holder: $element."
+            # send rewards to one address.
+            cmd=$(/root/stargaze/bin/starsd tx bank send -y killarneylabs $element 1000000ustars --chain-id elgafar-1 --node https://stargaze-testnet-rpc.polkachu.com:443 --fees 50000ustars --keyring-backend=test)
+            if [ $? -ne 0 ]; then
+                echo "$element failed to send transaction to this nft holder.."
+                #Add alerting here, add a slack hook o telegram hook to inform us that reward payment failed.
+            else
+              # Pause the script for the random number of seconds
+              sleep 5
+              # Echo the sleeping time
+              echo "Slept for 5 seconds"
+              echo "Rewards sent to $element."
+            fi
+        fi
     done
+done
 
 }
 
